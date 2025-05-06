@@ -12,7 +12,6 @@ This repository contains a Spring Boot application that provides RESTful APIs fo
     - [Feedback Service](#feedback-service)
 - [Sample Data for Postman](#sample-data-for-postman)
 - [Running the Application](#running-the-application)
-- [License](#license)
 
 ## Technologies Used
 - Java 21
@@ -62,7 +61,7 @@ backend/
 │   │                       ├── controller/                         // Test classes for controllers
 │   │                       ├── service/                            // Test classes for services
 │   │                       └── repository/                         // Test classes for repositories
-│   └── pom.xml or build.gradle                                     // Maven build file
+│   └── pom.xml                                                     // Maven build file
 │
 ├── feedback_service/
 │   ├── src/
@@ -94,11 +93,11 @@ backend/
 │   │           └── com/
 │   │               └── lms/
 │   │                   └── feedback_service/
-│   │                       ├── controller/                         // Test classes for controllers
-│   │                       ├── service/                            // Test classes for services
-│   │                       └── repository/                         // Test classes for repositories
-│   └── pom.xml                                                     // Maven build file
-└── README.md                                                       // Project documentation
+│   │                       ├── controller/                          // Test classes for controllers
+│   │                       ├── service/                             // Test classes for services
+│   │                       └── repository/                          // Test classes for repositories
+│   └── pom.xml                                                      // Maven build file
+└── README.md                                                        // Project documentation
 
 ```
 
@@ -260,8 +259,8 @@ You can use the following sample data to test the APIs in Postman.
 ## Running the Application
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://github.com/Senthamizharasu-MS/Capstone.git
+   cd Capstone
    ```
 2. Build the project using Maven:
     ```

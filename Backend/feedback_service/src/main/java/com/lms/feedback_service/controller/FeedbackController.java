@@ -1,13 +1,16 @@
 package com.lms.feedback_service.controller;
 
 import com.lms.feedback_service.dto.FeedbackDto;
+import com.lms.feedback_service.dto.FeedbackResponseDto;
 import com.lms.feedback_service.model.Feedback;
 import com.lms.feedback_service.service.FeedbackService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/feedback")
@@ -17,14 +20,18 @@ public class FeedbackController {
     private FeedbackService feedbackService;
 
     @PostMapping
-    public ResponseEntity<Feedback> createFeedback(@RequestBody FeedbackDto feedbackDto) {
+    public ResponseEntity<FeedbackResponseDto> createFeedback(@Valid @RequestBody FeedbackDto feedbackDto) {
         Feedback feedback = feedbackService.createFeedback(feedbackDto);
-        return ResponseEntity.ok(feedback);
+        FeedbackResponseDto responseDto = new FeedbackResponseDto(feedback.getId(), feedback.getUserId(), feedback.getMessage());
+        return ResponseEntity.ok(responseDto);
     }
 
     @GetMapping
-    public ResponseEntity<List<Feedback>> getAllFeedback() {
+    public ResponseEntity<List<FeedbackResponseDto>> getAllFeedback() {
         List<Feedback> feedbackList = feedbackService.getAllFeedback();
-        return ResponseEntity.ok(feedbackList);
+        List<FeedbackResponseDto> responseList = feedbackList.stream()
+                .map(feedback -> new FeedbackResponseDto(feedback.getId(), feedback.getUserId(), feedback.getMessage()))
+                .collect(Collectors.toList());
+        return ResponseEntity.ok(responseList);
     }
 }

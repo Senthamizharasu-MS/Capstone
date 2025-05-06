@@ -3,6 +3,7 @@ package com.lms.course_service.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.lms.course_service.exception.CourseNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,7 @@ public class CourseServiceImp implements CourseService {
     public CourseDto getCourseById(Long id) {
         return courseRepo.findById(id)
                 .map(this::mapToDto)
-                .orElse(null);
+                .orElseThrow(() -> new CourseNotFoundException(id)); // Throw exception if not found
     }
 
     @Override

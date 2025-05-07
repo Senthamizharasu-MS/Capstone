@@ -17,7 +17,9 @@ public class FeedbackServiceImp implements FeedbackService {
     public Feedback createFeedback(FeedbackDto feedbackDto) {
         Feedback feedback = new Feedback();
         feedback.setUserId(feedbackDto.userId());
-        feedback.setMessage(feedbackDto.message());
+        feedback.setCourseId(feedbackDto.courseId());
+        feedback.setComment(feedbackDto.comment());
+        feedback.setRating(feedbackDto.rating());
         return feedbackRepo.save(feedback);
     }
 

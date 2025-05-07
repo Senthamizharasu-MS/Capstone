@@ -13,7 +13,9 @@ public class Feedback {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long feedbackId;
+    private String courseId;
     private String userId;
-    private String message;
+    private String comment;
+    private Integer rating;
 }

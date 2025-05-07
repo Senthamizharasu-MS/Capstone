@@ -22,7 +22,7 @@ public class FeedbackController {
     @PostMapping
     public ResponseEntity<FeedbackResponseDto> createFeedback(@Valid @RequestBody FeedbackDto feedbackDto) {
         Feedback feedback = feedbackService.createFeedback(feedbackDto);
-        FeedbackResponseDto responseDto = new FeedbackResponseDto(feedback.getId(), feedback.getUserId(), feedback.getMessage());
+        FeedbackResponseDto responseDto = new FeedbackResponseDto(feedback.getFeedbackId(), feedback.getUserId(), feedback.getCourseId(), feedback.getComment(),feedback.getRating());
         return ResponseEntity.ok(responseDto);
     }
 
@@ -30,7 +30,7 @@ public class FeedbackController {
     public ResponseEntity<List<FeedbackResponseDto>> getAllFeedback() {
         List<Feedback> feedbackList = feedbackService.getAllFeedback();
         List<FeedbackResponseDto> responseList = feedbackList.stream()
-                .map(feedback -> new FeedbackResponseDto(feedback.getId(), feedback.getUserId(), feedback.getMessage()))
+                .map(feedback -> new FeedbackResponseDto(feedback.getFeedbackId(), feedback.getUserId(), feedback.getCourseId(), feedback.getComment(), feedback.getRating()))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(responseList);
     }

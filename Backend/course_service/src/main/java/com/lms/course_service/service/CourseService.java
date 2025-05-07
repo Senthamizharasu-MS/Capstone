@@ -7,6 +7,7 @@ public interface CourseService {
     
     List<CourseDto> getAllCourses();
     CourseDto getCourseById(Long id);
+    CourseDto getCourseByName(String courseName);
     CourseDto createCourse(CourseDto courseDto);
     CourseDto updateCourse(Long id, CourseDto courseDto);
     void deleteCourse(Long id);

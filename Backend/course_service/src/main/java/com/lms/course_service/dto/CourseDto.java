@@ -9,6 +9,9 @@ public record CourseDto(
         @NotBlank(message = "Course name is required") String courseName,
         @NotBlank(message = "Course code is required") String courseCode,
         String description,
+        @NotBlank(message = "Course category is required") String courseCategory,
+        String courseContent,
         @NotNull(message = "Starting date is required") LocalDate startingDate,
-        @NotNull(message = "Ending date is required") LocalDate endingDate) {
+        @NotNull(message = "Ending date is required") LocalDate endingDate,
+        @NotBlank(message = "Course status is required ") String status){
 }

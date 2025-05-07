@@ -17,6 +17,17 @@ public class Course {
     private String courseName;
     private String courseCode;
     private String description;
+    private String courseCategory;
+    private String courseContent;
     private LocalDate startingDate;
     private LocalDate endingDate;
+
+    @Enumerated(EnumType.STRING)
+    private CourseStatus status;
+
+    public enum CourseStatus{
+        ACTIVE,
+        INACTIVE,
+        COMPLETED
+    }
 }

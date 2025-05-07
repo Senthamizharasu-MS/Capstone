@@ -1,5 +1,7 @@
 package com.lms.course_service.dto;
 
+import com.lms.course_service.model.Course;
+
 import java.time.LocalDate;
 
 public record CourseResponseDto(
@@ -7,6 +9,9 @@ public record CourseResponseDto(
         String courseName,
         String courseCode,
         String description,
+        String courseCategory,
+        String courseContent,
         LocalDate startingDate,
-        LocalDate endingDate) {
+        LocalDate endingDate,
+        String status) {
 }

@@ -25,8 +25,11 @@ public class CourseController {
                         course.courseName(),
                         course.courseCode(),
                         course.description(),
+                        course.courseCategory(),
+                        course.courseCategory(),
                         course.startingDate(),
-                        course.endingDate()))
+                        course.endingDate(),
+                        course.status()))
                 .collect(Collectors.toList());
     }
 
@@ -38,8 +41,11 @@ public class CourseController {
                 courseDto.courseName(),
                 courseDto.courseCode(),
                 courseDto.description(),
+                courseDto.courseCategory(),
+                courseDto.courseCategory(),
                 courseDto.startingDate(),
-                courseDto.endingDate());
+                courseDto.endingDate(),
+                courseDto.status());
     }
 
     @PostMapping
@@ -50,8 +56,11 @@ public class CourseController {
                 createdCourse.courseName(),
                 createdCourse.courseCode(),
                 createdCourse.description(),
+                createdCourse.courseCategory(),
+                createdCourse.courseContent(),
                 createdCourse.startingDate(),
-                createdCourse.endingDate());
+                createdCourse.endingDate(),
+                createdCourse.status());
     }
 
     @PutMapping("/{id}")
@@ -62,8 +71,11 @@ public class CourseController {
                 updatedCourse.courseName(),
                 updatedCourse.courseCode(),
                 updatedCourse.description(),
+                updatedCourse.courseCategory(),
+                updatedCourse.courseContent(),
                 updatedCourse.startingDate(),
-                updatedCourse.endingDate());
+                updatedCourse.endingDate(),
+                updatedCourse.status());
     }
 
     @DeleteMapping("/{id}")
